@@ -3,6 +3,16 @@
 </head><body>
 <header class="hero"><h1>Monitoring Kinerja<br><em>UP3 Pekanbaru</em></h1><div class="hero-bottom"><div><div class="tag">TAHUN 2026</div><div class="subtitle">Target, realisasi, pencapaian, dan tren • 10 indikator dalam 4 WIG</div></div><div style="font-weight:800;font-size:13px">PERFORMANCE DASHBOARD<br><span style="font-weight:400;opacity:.78">Interaktif · data s/d September 2026</span></div></div></header>
 <main class="container">
+
+<!-- PANEL STATUS DATABASE SUPABASE -->
+<section class="up3-panel" id="cloud-panel" style="margin:0 0 18px;padding:14px 20px">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div><b style="font-size:14px;color:#073475">Database Online • Supabase</b><div id="cloudStatus" style="color:#60758c;font-size:12px;margin-top:4px">Memeriksa konfigurasi...</div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="cloudSync" type="button">Ambil Data Cloud</button><button class="btn" id="cloudUpload" type="button">Kirim Data Lokal</button></div>
+  </div>
+  <p style="font-size:11px;color:#7d5d32;margin:7px 0 0">Tanpa login: akses tulis publik. Data lokal yang disimpan otomatis tersinkron ke cloud Supabase.</p>
+</section>
+
 <nav class="unit-nav" aria-label="Menu unit kerja"><button type="button" class="unit-tab active" data-page="up3" aria-selected="true"><span class="tab-ico">▦</span><span><strong>Menu UP3</strong><small>Dashboard dan input KPI UP3</small></span></button><button type="button" class="unit-tab" data-page="ulp" aria-selected="false"><span class="tab-ico">▤</span><span><strong>Menu ULP</strong><small>Dashboard dan input KPI ULP</small></span></button><button type="button" class="unit-tab" data-page="tren" aria-selected="false"><span class="tab-ico">↗</span><span><strong>Tren UP3 &amp; ULP</strong><small>Tabel tren bulanan antarunit</small></span></button></nav>
 <div class="unit-page" id="page-up3"><div class="toolbar"><div class="controls"><label for="month">Periode</label><select id="month"></select><label for="wig">Kelompok WIG</label><select id="wig"><option value="all">Semua WIG</option><option>Revenue</option><option>Efisiensi</option><option>Keandalan</option><option>Safety</option></select><input id="search" placeholder="Cari nama indikator..."></div><div class="controls"><button class="btn" id="reset">Atur ulang</button><button class="btn" onclick="window.print()" title="Cetak satu halaman A4 portrait">Cetak / Simpan PDF</button></div></div>
 <section class="stats"><div class="stat"><div class="lab">Indikator</div><div class="num" id="total">10</div><div class="desc">Dalam pilihan WIG</div></div><div class="stat red"><div class="lab">Merah · &lt;95%</div><div class="num" id="red">1</div><div class="desc">Perlu perhatian</div></div><div class="stat yellow"><div class="lab">Kuning · 95–&lt;100%</div><div class="num" id="yellow">0</div><div class="desc">Mendekati target</div></div><div class="stat green"><div class="lab">Hijau · ≥100%</div><div class="num" id="green">9</div><div class="desc">Target tercapai</div></div><div class="stat up"><div class="lab">Tren membaik</div><div class="num" id="improve">4</div><div class="desc">Dibanding bulan lalu</div></div><div class="stat down"><div class="lab">Tren memburuk</div><div class="num" id="worse">5</div><div class="desc">Dibanding bulan lalu</div></div></section>
@@ -24,6 +34,8 @@
 <div class="up3-note">Tabel tren membandingkan <b>persentase pencapaian</b>, bukan nilai target atau realisasi mentah. Jika data periode sebelumnya atau periode terpilih belum tersedia, sel ditandai <b>—</b>. ULP 1 telah dihapus dan tidak akan ditampilkan.</div></section></div>
 <div class="footer">Sumber: <b>Infografis Monitoring Kinerja UP3 Pekanbaru 092026.pdf</b>. Angka awal target, realisasi, dan pencapaian mengikuti dokumen referensi. Pencapaian akan dihitung ulang secara otomatis jika target atau realisasi UP3 diedit. Target Oktober–Desember merupakan target rencana; realisasi dan pencapaian setelah September belum tersedia. Status merah &lt;95%; kuning 95% hingga &lt;100%; hijau ≥100%.</div></main>
 
+  <script src="cloud-config.js"></script>
+  <script src="cloud-sync.js"></script>
   <script src="js/script-01.js"></script>
   <script src="js/script-02.js"></script>
   <script src="js/script-03.js"></script>
